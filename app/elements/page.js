@@ -1,9 +1,12 @@
 'use client'
 import { useRef, useState } from "react"
+import { useSearchParams } from 'next/navigation'
 import Table from "../Table"
 
 
 export default function Home() {
+  const searchParams = useSearchParams();
+  const number = searchParams.get('num')
   function changeHandle(e){
     setVal(e.target.value)
   }
@@ -26,13 +29,13 @@ export default function Home() {
   function element(){
     setAns("")
     setShow(false)
-    let num = Math.round(Math.random()*19)+1
+    let num = Math.round(Math.random()*(number-1))+1
     let E = PTable[num].name
     setNum(E)
     if(!(arr.includes(E))){
     setName(num)
     setArr([...arr, E]);
-    }else if(arr.length == 20){
+    }else if(arr.length == number){
       setFinish(true)
     }else{
       element()
