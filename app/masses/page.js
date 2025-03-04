@@ -1,6 +1,7 @@
 'use client'
 import { useRef, useState } from "react"
 import Table from "../Table"
+import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation'
 
 
@@ -51,6 +52,7 @@ export default function Home() {
   const [ENum, setNum] = useState(1)
   const [finish, setFinish] = useState(false)
     return (
+      <Suspense fallback={<div>Loading...</div>}>
       <div>
         <div className="m-5 p-5 shadow-xl rounded-lg flex justify-center items-center flex-col">
     <div className="text-xl text-center">what is the Mass Number of {EName} ?</div>
@@ -71,5 +73,6 @@ export default function Home() {
     </div>
     </div>
       </div>
+      </Suspense>
     );
   }

@@ -1,4 +1,5 @@
 'use client'
+import React, { Suspense } from 'react';
 import { useRef, useState } from "react"
 import { useSearchParams } from 'next/navigation'
 import Table from "../Table"
@@ -50,6 +51,7 @@ export default function Home() {
   const [ENum, setNum] = useState("hydrogen")
   const [finish, setFinish] = useState(false)
     return (
+      <Suspense fallback={<div>Loading...</div>}>
       <div>
         <div className="m-5 p-5 shadow-xl rounded-lg flex justify-center items-center flex-col">
     <div className="text-xl text-center">what is the Name of element with atomic number {EName} ?</div>
@@ -70,5 +72,6 @@ export default function Home() {
     </div>
     </div>
       </div>
+      </Suspense>
     );
   }
