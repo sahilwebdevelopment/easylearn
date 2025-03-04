@@ -14,7 +14,7 @@ export default function Home() {
     if(Number(val) == ""){
       setAns("Type something to know it is right or wrong")
     }else{
-      if(val.toLowerCase == ENum.toLowerCase){
+      if(val.toLowerCase() == ENum.toLowerCase()){
         setAns("correct")
     }else{
       setAns("wrong")
